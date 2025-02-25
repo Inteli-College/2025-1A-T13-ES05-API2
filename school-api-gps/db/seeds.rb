@@ -352,7 +352,7 @@ puts "Criando 2000 alunos e suas matrículas..."
       shift: [ "Manhã", "Tarde", "Noite" ].sample,
       start_date: Faker::Date.between(from: 5.years.ago, to: 1.years.ago),
       end_date: Faker::Date.between(from: 364.days.ago, to: Date.today),
-      status: [ "Ativa", "Concluída", "Pendente" ].sample
+      status: [ "Ativa", "Concluída", "Pendente", "Cancelada" ].sample
     )
   end
 
