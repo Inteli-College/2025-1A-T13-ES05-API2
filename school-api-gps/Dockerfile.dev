@@ -36,8 +36,8 @@ COPY . .
 # Instala as dependências do projeto
 RUN bundle install
 
+# Rodar as migrações do banco de dados antes de iniciar o servidor
+CMD ["sh", "-c", "bin/rails db:create && bin/rails db:migrate && bundle exec rails server -b '0.0.0.0'"]
+
 # Exposição da porta padrão do Rails
 EXPOSE 3000
-
-# Define o comando padrão ao iniciar o container
-CMD ["rails", "server", "-b", "0.0.0.0"]
