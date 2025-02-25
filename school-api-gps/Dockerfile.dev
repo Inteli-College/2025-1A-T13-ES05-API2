@@ -1,0 +1,43 @@
+# syntax=docker/dockerfile:1
+# Development Dockerfile
+
+ARG RUBY_VERSION=3.4.2
+FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
+
+# Define o diretório do projeto
+WORKDIR /rails
+
+# Instala pacotes necessários para desenvolvimento
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y \
+    curl \
+    vim \
+    nano \
+    git \
+    build-essential \
+    postgresql-client \
+    libpq-dev \
+    nodejs \
+    yarn \
+    libvips \
+    libyaml-dev && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+# Define variáveis de ambiente para desenvolvimento
+ENV RAILS_ENV="development" \
+    BUNDLE_PATH="/usr/local/bundle" \
+    BUNDLE_JOBS=4 \
+    BUNDLE_RETRY=3 \
+    HISTFILE="/rails/.bash_history"
+
+# Copia os arquivos do projeto para o container
+COPY . .
+
+# Instala as dependências do projeto
+RUN bundle install
+
+# Exposição da porta padrão do Rails
+EXPOSE 3000
+
+# Define o comando padrão ao iniciar o container
+CMD ["rails", "server", "-b", "0.0.0.0"]
