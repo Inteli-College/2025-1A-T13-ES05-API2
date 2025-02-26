@@ -79,4 +79,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  url: <%= ENV["DATABASE_URL"] %>
+  <<: *default
+  database: school_api_gps_db
+  username: school_api_gps_db_user
+  password: <%= ENV["DATABASE_PASSWORD"] %>
