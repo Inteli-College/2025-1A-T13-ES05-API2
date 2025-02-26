@@ -5,6 +5,12 @@ Faker::Config.locale = 'pt-BR'
 
 puts "Iniciando seed..."
 
+puts "Limpando banco de dados..."
+Enrollment.destroy_all
+Student.destroy_all
+Course.destroy_all
+Institution.destroy_all
+
 # 1. Create Institutions from real data
 puts "Criando instituições reais..."
 
