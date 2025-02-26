@@ -79,14 +79,9 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+  url: <%= ENV["DATABASE_URL"] %>
   primary: &primary_production
     <<: *default
-    database: school-api-gps-db
+    database: school_api_gps_db
     username: school_api_gps_db_user
     password: <%= ENV["DATABASE_PASSWORD"] %>
-  cache:
-    <<: *primary_production
-  queue:
-    <<: *primary_production
-  cable:
-    <<: *primary_production

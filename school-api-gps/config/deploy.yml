@@ -2,7 +2,7 @@
 service: school_api_gps
 
 # Name of the container image.
-image: your-user/school_api_gps
+image: otaviovascinteli/school_api_gps
 
 # Deploy to these servers.
 servers:
