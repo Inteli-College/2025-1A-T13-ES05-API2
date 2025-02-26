@@ -7,7 +7,7 @@ services:
     startCommand: "bundle exec rails server -p 10000"
     envVars:
       - key: DATABASE_URL
-        value: "postgresql://postgres:xzTvjWUP2L4xb3y2@db.cfnzdksfjarrumcfmkny.supabase.co:5432/postgres"
+        value: "postgresql://postgres:xzTvjWUP2L4xb3y2@db.cfnzdksfjarrumcfmkny.supabase.co:5432/postgres?sslmode=require"
       - key: SUPABASE_URL
         value: "https://cfnzdksfjarrumcfmkny.supabase.co"
       - key: RAILS_MASTER_KEY
