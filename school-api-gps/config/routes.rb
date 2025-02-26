@@ -10,7 +10,27 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :students, only: [ :index, :show ]
+      resources :institutions, only: [ :index, :show ] do
+        # List all students for a specific institution:
+        get "students", on: :member
+      end
+
+      # Only include the student show endpoint here:
+      resources :students, only: [ :show ] do
+        # This endpoint will return all enrollments for a given student.
+        get "enrollments", on: :member
+      end
+
+      # Optionally, include endpoints for courses, etc.
+      resources :courses, only: [ :index, :show ] do
+        get "students", on: :member
+      end
+
+      # Enrollment details endpoint:
+      resources :enrollments, only: [ :show ]
+
+      # Statistics endpoint:
+      get "stats", to: "stats#index"
     end
   end
 end

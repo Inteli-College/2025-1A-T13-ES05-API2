@@ -1,16 +1,23 @@
-# app/controllers/api/v1/base_controller.rb
 class Api::V1::BaseController < ApplicationController
-  include ActionController::HttpAuthentication::Basic::ControllerMethods
-
-  before_action :authenticate
+  before_action :authenticate_bearer!
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   private
 
-  def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      username == ENV["API_USERNAME"] && password == ENV["API_PASSWORD"]
+  def authenticate_bearer!
+    # Grab the Authorization header, expecting "Bearer <token>"
+    auth_header = request.headers["Authorization"]
+
+    if auth_header.present? && auth_header.start_with?("Bearer ")
+      token = auth_header.split(" ").last
+      # Split the comma-separated tokens from your ENV variable into an array
+      valid_tokens = ENV.fetch("VALID_TOKENS", "").split(",").map(&:strip)
+      unless valid_tokens.include?(token)
+        render json: { error: "Unauthorized" }, status: :unauthorized and return
+      end
+    else
+      render json: { error: "Unauthorized" }, status: :unauthorized and return
     end
   end
 

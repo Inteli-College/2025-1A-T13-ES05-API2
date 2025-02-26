@@ -1,4 +1,3 @@
-# app/serializers/enrollment_serializer.rb
 class EnrollmentSerializer < ActiveModel::Serializer
   attributes :id, :shift, :start_date, :end_date, :status, :institution_name, :course_name, :course_type
 
