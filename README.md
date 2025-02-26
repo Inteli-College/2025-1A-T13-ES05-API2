@@ -2,10 +2,19 @@
 
 # Documentação da API
 
+## Dados disponiveis
+
+- **Institution (Instituição de ensino): 305**
+- **Student (Estudantes): 2000**
+- **Course (Cursos): 100**
+- **Enrollments (Matrículas): 4037**
+
+obs: Cada estudante tem entre 1-3 matrículas
+
 ## URL Base
 Todos os endpoints estão prefixados com:
 ```
-http://localhost:3000/api/v1
+https://two025-1a-t13-es05-api2.onrender.com/api/v1
 ```
 
 ## Autenticação
@@ -20,7 +29,7 @@ Substitua `seu_token` por um dos tokens válidos previamente gerados.
 ### 1. Instituições
 
 #### Listar Todas as Instituições
-**Endpoint:**  
+**Endpoint:**
 ```
 GET /api/v1/institutions
 ```
@@ -29,16 +38,16 @@ GET /api/v1/institutions
 ```bash
 curl -H "Accept: application/json" \
      -H "Authorization: Bearer seu_token" \
-     http://localhost:3000/api/v1/institutions
+     https://two025-1a-t13-es05-api2.onrender.com/api/v1/institutions
 ```
 
-**Descrição:**  
+**Descrição:**
 Retorna uma lista com todas as instituições cadastradas.
 
 ---
 
 #### Detalhes de uma Instituição
-**Endpoint:**  
+**Endpoint:**
 ```
 GET /api/v1/institutions/:id
 ```
@@ -47,16 +56,16 @@ GET /api/v1/institutions/:id
 ```bash
 curl -H "Accept: application/json" \
      -H "Authorization: Bearer seu_token" \
-     http://localhost:3000/api/v1/institutions/1
+     https://two025-1a-t13-es05-api2.onrender.com/api/v1/institutions/1
 ```
 
-**Descrição:**  
+**Descrição:**
 Retorna informações detalhadas de uma instituição específica.
 
 ---
 
 #### Listar Alunos de uma Instituição
-**Endpoint:**  
+**Endpoint:**
 ```
 GET /api/v1/institutions/:id/students
 ```
@@ -65,10 +74,10 @@ GET /api/v1/institutions/:id/students
 ```bash
 curl -H "Accept: application/json" \
      -H "Authorization: Bearer seu_token" \
-     http://localhost:3000/api/v1/institutions/1/students
+     https://two025-1a-t13-es05-api2.onrender.com/api/v1/institutions/1/students
 ```
 
-**Descrição:**  
+**Descrição:**
 Retorna todos os alunos matriculados na instituição especificada.
 
 ---
@@ -76,7 +85,7 @@ Retorna todos os alunos matriculados na instituição especificada.
 ### 2. Alunos
 
 #### Visualizar Detalhes de um Aluno
-**Endpoint:**  
+**Endpoint:**
 ```
 GET /api/v1/students/:id
 ```
@@ -85,16 +94,16 @@ GET /api/v1/students/:id
 ```bash
 curl -H "Accept: application/json" \
      -H "Authorization: Bearer seu_token" \
-     http://localhost:3000/api/v1/students/1
+     https://two025-1a-t13-es05-api2.onrender.com/api/v1/students/1
 ```
 
-**Descrição:**  
+**Descrição:**
 Retorna informações detalhadas de um único aluno.
 
 ---
 
 #### Listar Matrículas de um Aluno
-**Endpoint:**  
+**Endpoint:**
 ```
 GET /api/v1/students/:id/enrollments
 ```
@@ -103,10 +112,10 @@ GET /api/v1/students/:id/enrollments
 ```bash
 curl -H "Accept: application/json" \
      -H "Authorization: Bearer seu_token" \
-     http://localhost:3000/api/v1/students/1/enrollments
+     https://two025-1a-t13-es05-api2.onrender.com/api/v1/students/1/enrollments
 ```
 
-**Descrição:**  
+**Descrição:**
 Retorna todas as matrículas vinculadas ao aluno especificado, incluindo detalhes sobre a instituição e o curso.
 
 ---
@@ -114,7 +123,7 @@ Retorna todas as matrículas vinculadas ao aluno especificado, incluindo detalhe
 ### 3. Cursos
 
 #### Listar Todos os Cursos
-**Endpoint:**  
+**Endpoint:**
 ```
 GET /api/v1/courses
 ```
@@ -123,16 +132,16 @@ GET /api/v1/courses
 ```bash
 curl -H "Accept: application/json" \
      -H "Authorization: Bearer seu_token" \
-     http://localhost:3000/api/v1/courses
+     https://two025-1a-t13-es05-api2.onrender.com/api/v1/courses
 ```
 
-**Descrição:**  
+**Descrição:**
 Retorna uma lista com todos os cursos disponíveis.
 
 ---
 
 #### Detalhes de um Curso
-**Endpoint:**  
+**Endpoint:**
 ```
 GET /api/v1/courses/:id
 ```
@@ -141,16 +150,16 @@ GET /api/v1/courses/:id
 ```bash
 curl -H "Accept: application/json" \
      -H "Authorization: Bearer seu_token" \
-     http://localhost:3000/api/v1/courses/1
+     https://two025-1a-t13-es05-api2.onrender.com/api/v1/courses/1
 ```
 
-**Descrição:**  
+**Descrição:**
 Retorna informações detalhadas de um curso específico.
 
 ---
 
 #### Listar Alunos de um Curso
-**Endpoint:**  
+**Endpoint:**
 ```
 GET /api/v1/courses/:id/students
 ```
@@ -159,10 +168,10 @@ GET /api/v1/courses/:id/students
 ```bash
 curl -H "Accept: application/json" \
      -H "Authorization: Bearer seu_token" \
-     http://localhost:3000/api/v1/courses/1/students
+     https://two025-1a-t13-es05-api2.onrender.com/api/v1/courses/1/students
 ```
 
-**Descrição:**  
+**Descrição:**
 Retorna todos os alunos matriculados no curso especificado.
 
 ---
@@ -170,7 +179,7 @@ Retorna todos os alunos matriculados no curso especificado.
 ### 4. Estatísticas
 
 #### Obter Estatísticas da API
-**Endpoint:**  
+**Endpoint:**
 ```
 GET /api/v1/stats
 ```
@@ -179,10 +188,10 @@ GET /api/v1/stats
 ```bash
 curl -H "Accept: application/json" \
      -H "Authorization: Bearer seu_token" \
-     http://localhost:3000/api/v1/stats
+     https://two025-1a-t13-es05-api2.onrender.com/api/v1/stats
 ```
 
-**Descrição:**  
+**Descrição:**
 Retorna estatísticas resumidas da API, tais como:
 - Total de alunos
 - Total de matrículas
@@ -197,5 +206,3 @@ Retorna estatísticas resumidas da API, tais como:
 - **Tratamento de Erros:** São utilizados os códigos de status HTTP padrão (por exemplo, 200 OK, 401 Unauthorized, 404 Not Found).
 
 ---
-
-Copie este conteúdo para um arquivo Markdown (por exemplo, `README.md`) e mantenha-o atualizado conforme sua API evoluir.
