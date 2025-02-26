@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: school_api_gps_db
-  username: school_api_gps_db_user
-  password: <%= ENV["DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
