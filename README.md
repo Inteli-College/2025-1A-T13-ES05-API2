@@ -2,8 +2,21 @@
 
 # Documentação da API
 
-## Dados disponiveis
+## Endpoints Disponiveis
 
+- **GET /api/v1/institutions**: Lista todas as instituições.
+- **GET /api/v1/institutions/:id**: Exibe detalhes de uma instituição específica.
+- **GET /api/v1/institutions/:id/students**: Lista os alunos matriculados em uma instituição.
+- **GET /api/v1/students/:id**: Exibe detalhes de um aluno específico.
+- **GET /api/v1/students/:id/enrollments**: Lista todas as matrículas associadas a um aluno.
+- **GET /api/v1/courses**: Lista todos os cursos disponíveis.
+- **GET /api/v1/courses/:id**: Exibe detalhes de um curso específico.
+- **GET /api/v1/courses/:id/students**: Lista os alunos matriculados em um curso.
+- **GET /api/v1/stats**: Retorna estatísticas gerais da API (total de alunos, matrículas, cursos e matrículas por instituição).
+
+## Dados Disponiveis
+
+#### Criados no arquivo seed.rb, se quiser rodar a seed novamente em produção, descomente ```# RAILS_ENV=production bundle exec rails db:seed``` no arquivo render.sh
 - **Institution (Instituição de ensino): 305**
 - **Student (Estudantes): 2000**
 - **Course (Cursos): 100**
@@ -204,5 +217,6 @@ Retorna estatísticas resumidas da API, tais como:
 - **Formato de Resposta:** Todas as respostas são retornadas em formato JSON.
 - **API Somente de Leitura:** Esta API é destinada exclusivamente à consulta de dados. Não há criação, atualização ou deleção de registros.
 - **Tratamento de Erros:** São utilizados os códigos de status HTTP padrão (por exemplo, 200 OK, 401 Unauthorized, 404 Not Found).
+- **Lembre-se de passar o token de authentication no header de sua requisição**
 
 ---
