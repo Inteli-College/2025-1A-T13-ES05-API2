@@ -14,12 +14,13 @@
 #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
 #   end
 # end
-
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*' # For production, consider specifying only trusted domains.
+    origins '*'  # In production, specify allowed origins
     resource '*',
-             headers: :any,
-             methods: [:get, :post, :patch, :put, :delete, :options, :head]
+      headers: :any,
+      methods: [:get, :post, :put, :patch, :delete, :options, :head],
+      expose: ['Authorization']
   end
 end
+

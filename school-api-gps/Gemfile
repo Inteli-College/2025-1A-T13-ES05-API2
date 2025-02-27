@@ -24,6 +24,15 @@ gem "active_model_serializers"
 
 gem "dotenv-rails", groups: [ :development, :test ]
 
+# Gemfile
+gem 'rswag-api'
+gem 'rswag-ui'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'rswag-specs'
+end
+
 gem "faker"
 
 # Reduces boot times through caching; required in config/boot.rb
